@@ -1,285 +1,843 @@
-export default function Portfolio() {
-  const skills = [
-    'Java',
-    'Spring Boot',
-    'Microservices',
-    'Redis',
-    'ElasticSearch',
-    'AWS SNS/SQS',
-    'DynamoDB',
-    'Kubernetes',
-    'LLD & HLD',
-    'System Design',
-    'LLM Pipelines',
-    'Semantic Search',
-    'MySQL',
-    'Couchbase',
-    'React',
-  ];
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shubham Pandey - Senior Backend Engineer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-  const experiences = [
-    {
-      company: 'Cvent',
-      role: 'Senior Software Engineer',
-      duration: 'Apr 2024 – Present',
-      points: [
-        'Built Fast Responder microservice using Spring Boot, Redis, and AWS SNS/SQS for scalable venue response processing.',
-        'Improved venue search relevance by 41% with Elasticsearch indexing and geo-based filtering.',
-        'Designed semantic search and LLM-driven venue discovery pipelines.',
-        'Implemented Couchbase ↔ Elasticsearch synchronization for near real-time consistency.',
-      ],
-    },
-    {
-      company: 'Freecharge',
-      role: 'Senior Software Development Engineer',
-      duration: 'Aug 2021 – Mar 2024',
-      points: [
-        'Built UPI Central Mapper for transaction routing using 8–10 digit UPI numbers.',
-        'Developed recurring mandate system increasing active users by 18%.',
-        'Designed distributed transaction systems using microservices and AWS SNS/SQS.',
-        'Contributed to migration from EC2 to Kubernetes (EKS).',
-      ],
-    },
-    {
-      company: 'Tata Consultancy Services',
-      role: 'Software Engineer | Digital Cadre',
-      duration: 'Jun 2019 – Aug 2021',
-      points: [
-        'Worked on microservices modernization and REST API development.',
-        'Built internal tools for validation and change request tracking.',
-      ],
-    },
-  ];
+        :root {
+            --primary: #00d4ff;
+            --primary-dark: #0099cc;
+            --secondary: #a78bfa;
+            --accent: #f87171;
+            --bg: #0f0f0f;
+            --bg-light: #1a1a1a;
+            --text: #ffffff;
+            --text-light: #a0a0a0;
+        }
 
-  const projects = [
-    {
-      title: 'AI-Powered Venue Discovery',
-      description:
-        'Semantic search and LLM-based recommendation engine for venue discovery using Elasticsearch, NLP, and AI pipelines.',
-      tech: 'Java • Spring Boot • ElasticSearch • LLMs • Redis',
-    },
-    {
-      title: 'UPI Central Mapper',
-      description:
-        'High-throughput transaction routing service enabling secure and scalable UPI number-based processing.',
-      tech: 'Java • DynamoDB • SNS/SQS • Kubernetes',
-    },
-    {
-      title: 'Fast Responder System',
-      description:
-        'Distributed microservice architecture improving venue response visibility and processing scalability.',
-      tech: 'Spring Boot • Redis • AWS • Couchbase',
-    },
-  ];
+        html {
+            scroll-behavior: smooth;
+        }
 
-  return (
-    <div className="min-h-screen bg-black text-white font-sans">
-      <section className="relative overflow-hidden border-b border-white/10">
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 via-purple-500/10 to-cyan-500/20 blur-3xl" />
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
 
-        <div className="relative max-w-7xl mx-auto px-6 py-24 lg:py-36">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div>
-              <div className="inline-flex items-center gap-2 rounded-full border border-white/20 px-4 py-2 text-sm text-gray-300 mb-6 bg-white/5 backdrop-blur-sm">
-                Senior Backend Engineer • 6+ Years Experience
-              </div>
+        /* Navbar */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            background: rgba(15, 15, 15, 0.8);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1rem 2rem;
+        }
 
-              <h1 className="text-5xl md:text-7xl font-black leading-tight tracking-tight">
-                Shubham
-                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-500">
-                  Pandey
-                </span>
-              </h1>
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-              <p className="mt-8 text-lg text-gray-300 leading-relaxed max-w-2xl">
-                Building scalable backend systems, intelligent search platforms,
-                and AI-powered microservices using Java, Spring Boot,
-                Elasticsearch, Redis, Kubernetes, and cloud-native architecture.
-              </p>
+        .nav-logo {
+            font-size: 1.5rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
 
-              <div className="flex flex-wrap gap-4 mt-10">
-                <a
-                  href="mailto:ms.shubhampandey05@gmail.com"
-                  className="px-6 py-3 rounded-2xl bg-white text-black font-semibold hover:scale-105 transition"
-                >
-                  Contact Me
-                </a>
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
 
-                <a
-                  href="https://github.com/spandey232"
-                  target="_blank"
-                  className="px-6 py-3 rounded-2xl border border-white/20 hover:bg-white/10 transition"
-                >
-                  GitHub
-                </a>
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+            font-weight: 500;
+        }
 
-                <a
-                  href="https://www.linkedin.com/in/shubham-pandey-91aa0713b"
-                  target="_blank"
-                  className="px-6 py-3 rounded-2xl border border-white/20 hover:bg-white/10 transition"
-                >
-                  LinkedIn
-                </a>
-              </div>
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--primary);
+        }
 
-              <div className="mt-10 flex flex-wrap gap-3 text-sm text-gray-300">
-                <span className="px-4 py-2 rounded-full bg-white/10 border border-white/10">
-                  Bangalore, India
-                </span>
-                <span className="px-4 py-2 rounded-full bg-white/10 border border-white/10">
-                  System Design
-                </span>
-                <span className="px-4 py-2 rounded-full bg-white/10 border border-white/10">
-                  AI + Search
-                </span>
-              </div>
-            </div>
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+        }
 
-            <div className="relative">
-              <div className="rounded-3xl border border-white/10 bg-white/5 backdrop-blur-xl p-8 shadow-2xl">
-                <div className="grid grid-cols-2 gap-6">
-                  <div className="rounded-2xl bg-gradient-to-br from-cyan-500/20 to-blue-500/10 border border-white/10 p-6">
-                    <h3 className="text-4xl font-black">6+</h3>
-                    <p className="text-gray-300 mt-2">Years Experience</p>
-                  </div>
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            margin-top: 60px;
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.05) 0%, rgba(167, 139, 250, 0.05) 100%);
+            position: relative;
+            overflow: hidden;
+        }
 
-                  <div className="rounded-2xl bg-gradient-to-br from-purple-500/20 to-pink-500/10 border border-white/10 p-6">
-                    <h3 className="text-4xl font-black">650+</h3>
-                    <p className="text-gray-300 mt-2">DSA Problems Solved</p>
-                  </div>
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 50%, rgba(0, 212, 255, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(167, 139, 250, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
 
-                  <div className="rounded-2xl bg-gradient-to-br from-emerald-500/20 to-teal-500/10 border border-white/10 p-6">
-                    <h3 className="text-4xl font-black">41%</h3>
-                    <p className="text-gray-300 mt-2">Search Accuracy Boost</p>
-                  </div>
+        .hero-content {
+            max-width: 1200px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
 
-                  <div className="rounded-2xl bg-gradient-to-br from-orange-500/20 to-red-500/10 border border-white/10 p-6">
-                    <h3 className="text-4xl font-black">18%</h3>
-                    <p className="text-gray-300 mt-2">User Growth Impact</p>
-                  </div>
+        .hero-text h1 {
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+        }
+
+        .hero-text h1 span {
+            background: linear-gradient(135deg, var(--primary), var(--secondary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-text p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            padding: 0.75rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: var(--bg);
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--primary);
+            background: rgba(0, 212, 255, 0.1);
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 1.5rem;
+            padding: 2rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        .hero-image {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 2rem;
+            padding: 3rem;
+            backdrop-filter: blur(10px);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .hero-card-content {
+            text-align: center;
+        }
+
+        .hero-card-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Section Common */
+        section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 0.5rem;
+        }
+
+        .section-title p {
+            color: var(--text-light);
+            font-size: 1.1rem;
+        }
+
+        /* Skills Section */
+        .skills {
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.03) 0%, rgba(167, 139, 250, 0.03) 100%);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+        }
+
+        .skill-tag {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1rem;
+            border-radius: 1rem;
+            text-align: center;
+            transition: all 0.3s;
+            cursor: pointer;
+            font-weight: 500;
+        }
+
+        .skill-tag:hover {
+            background: rgba(0, 212, 255, 0.1);
+            border-color: var(--primary);
+            transform: translateY(-5px);
+        }
+
+        /* Experience Section */
+        .experience {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .experience-item {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 1.5rem;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            transition: all 0.3s;
+        }
+
+        .experience-item:hover {
+            background: rgba(255, 255, 255, 0.08);
+            transform: translateX(10px);
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .experience-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .experience-info .company {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .experience-duration {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            white-space: nowrap;
+        }
+
+        .experience-points {
+            list-style: none;
+        }
+
+        .experience-points li {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        .experience-points li::before {
+            content: '▸';
+            color: var(--primary);
+            flex-shrink: 0;
+            font-weight: bold;
+        }
+
+        /* Projects Section */
+        .projects {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            background: linear-gradient(135deg, rgba(167, 139, 250, 0.03) 0%, rgba(0, 212, 255, 0.03) 100%);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.02) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 1.5rem;
+            padding: 2rem;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(0, 212, 255, 0.1) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.05) 100%);
+        }
+
+        .project-card:hover::before {
+            opacity: 1;
+        }
+
+        .project-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .project-card p {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+            position: relative;
+            z-index: 1;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .tech-badge {
+            background: rgba(0, 212, 255, 0.2);
+            color: var(--primary);
+            padding: 0.4rem 0.8rem;
+            border-radius: 0.5rem;
+            font-size: 0.8rem;
+            font-weight: 600;
+            border: 1px solid rgba(0, 212, 255, 0.3);
+        }
+
+        /* CTA Section */
+        .cta {
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.1) 0%, rgba(167, 139, 250, 0.1) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 2rem;
+            text-align: center;
+            padding: 4rem 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 3rem;
+        }
+
+        .cta h2 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta h2 span {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .cta p {
+            color: var(--text-light);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            text-align: center;
+            color: var(--text-light);
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+
+        .social-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: var(--primary);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem;
+            }
+
+            .nav-container {
+                padding: 0;
+            }
+
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .hero-text h1 {
+                font-size: 2rem;
+            }
+
+            .experience-header {
+                flex-direction: column;
+            }
+
+            .experience-duration {
+                width: 100%;
+            }
+
+            section {
+                padding: 3rem 1rem;
+            }
+
+            .cta {
+                padding: 2rem 1rem;
+            }
+        }
+
+        /* Scroll to top button */
+        .scroll-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
+            color: var(--bg);
+            border: none;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 999;
+            transition: all 0.3s;
+        }
+
+        .scroll-top:hover {
+            background: var(--primary-dark);
+            transform: translateY(-5px);
+        }
+
+        .scroll-top.show {
+            display: flex;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="nav-logo">SP</div>
+            <ul class="nav-links">
+                <li><a href="#hero" class="active">Home</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>
+                    Shubham
+                    <span>Pandey</span>
+                </h1>
+                <p>Senior Backend Engineer with 6+ years of experience building scalable microservices, AI-powered search platforms, and cloud-native systems using Java, Spring Boot, Kubernetes, and AWS.</p>
+                
+                <div class="hero-buttons">
+                    <a href="mailto:ms.shubhampandey05@gmail.com" class="btn btn-primary">Contact Me</a>
+                    <a href="https://github.com/spandey232" target="_blank" class="btn btn-secondary">GitHub</a>
+                    <a href="https://www.linkedin.com/in/shubham-pandey-91aa0713b" target="_blank" class="btn btn-secondary">LinkedIn</a>
                 </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
-      <section className="max-w-7xl mx-auto px-6 py-24">
-        <div className="flex items-center justify-between mb-12">
-          <div>
-            <h2 className="text-4xl font-black">Core Skills</h2>
-            <p className="text-gray-400 mt-2">
-              Technologies and architecture expertise
-            </p>
-          </div>
-        </div>
-
-        <div className="flex flex-wrap gap-4">
-          {skills.map((skill) => (
-            <div
-              key={skill}
-              className="px-5 py-3 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 transition"
-            >
-              {skill}
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section className="max-w-7xl mx-auto px-6 py-24 border-t border-white/10">
-        <div className="mb-14">
-          <h2 className="text-4xl font-black">Experience</h2>
-          <p className="text-gray-400 mt-2">
-            Building scalable systems for enterprise platforms
-          </p>
-        </div>
-
-        <div className="space-y-8">
-          {experiences.map((exp, idx) => (
-            <div
-              key={idx}
-              className="rounded-3xl border border-white/10 bg-white/5 p-8 hover:bg-white/[0.07] transition"
-            >
-              <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-                <div>
-                  <h3 className="text-2xl font-bold">{exp.role}</h3>
-                  <p className="text-cyan-400 text-lg mt-1">{exp.company}</p>
+                <div class="hero-stats">
+                    <div class="stat-card">
+                        <div class="stat-number">6+</div>
+                        <div class="stat-label">Years Experience</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">650+</div>
+                        <div class="stat-label">DSA Problems</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">41%</div>
+                        <div class="stat-label">Search Accuracy Boost</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">18%</div>
+                        <div class="stat-label">User Growth Impact</div>
+                    </div>
                 </div>
-                <div className="text-gray-400">{exp.duration}</div>
-              </div>
-
-              <ul className="mt-6 space-y-3 text-gray-300">
-                {exp.points.map((point, i) => (
-                  <li key={i} className="flex gap-3">
-                    <span className="text-cyan-400">•</span>
-                    <span>{point}</span>
-                  </li>
-                ))}
-              </ul>
             </div>
-          ))}
-        </div>
-      </section>
 
-      <section className="max-w-7xl mx-auto px-6 py-24 border-t border-white/10">
-        <div className="mb-14">
-          <h2 className="text-4xl font-black">Featured Projects</h2>
-          <p className="text-gray-400 mt-2">
-            Production-grade backend and AI systems
-          </p>
-        </div>
-
-        <div className="grid md:grid-cols-3 gap-8">
-          {projects.map((project, idx) => (
-            <div
-              key={idx}
-              className="rounded-3xl border border-white/10 bg-gradient-to-b from-white/10 to-white/[0.03] p-8 hover:scale-[1.02] transition"
-            >
-              <h3 className="text-2xl font-bold">{project.title}</h3>
-              <p className="text-gray-300 mt-4 leading-relaxed">
-                {project.description}
-              </p>
-
-              <div className="mt-6 text-sm text-cyan-400">
-                {project.tech}
-              </div>
+            <div class="hero-image">
+                <div class="hero-card">
+                    <div class="hero-card-content">
+                        <div class="hero-card-icon">⚙️</div>
+                        <h3>Backend Engineering</h3>
+                        <p>Building robust, scalable systems that power enterprise platforms</p>
+                    </div>
+                </div>
             </div>
-          ))}
         </div>
-      </section>
+    </section>
 
-      <section className="max-w-7xl mx-auto px-6 py-24 border-t border-white/10">
-        <div className="rounded-[2rem] border border-white/10 bg-gradient-to-r from-cyan-500/10 via-blue-500/10 to-purple-500/10 p-12 text-center">
-          <h2 className="text-5xl font-black leading-tight">
-            Let’s Build Scalable
-            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-500">
-              AI-Driven Systems
-            </span>
-          </h2>
-
-          <p className="text-gray-300 text-lg mt-6 max-w-2xl mx-auto">
-            Passionate about distributed systems, intelligent search, AI
-            integrations, and high-performance backend architecture.
-          </p>
-
-          <div className="flex flex-wrap justify-center gap-4 mt-10">
-            <a
-              href="mailto:ms.shubhampandey05@gmail.com"
-              className="px-8 py-4 rounded-2xl bg-white text-black font-semibold hover:scale-105 transition"
-            >
-              Hire Me
-            </a>
-
-            <a
-              href="https://spandey232.github.io/"
-              target="_blank"
-              className="px-8 py-4 rounded-2xl border border-white/20 hover:bg-white/10 transition"
-            >
-              Current Portfolio
-            </a>
-          </div>
+    <!-- Skills Section -->
+    <section class="skills" id="skills">
+        <div class="section-title">
+            <h2>Core Skills</h2>
+            <p>Technologies and architecture expertise</p>
         </div>
-      </section>
-    </div>
-  );
-}
+
+        <div class="skills-grid">
+            <div class="skill-tag">Java</div>
+            <div class="skill-tag">Spring Boot</div>
+            <div class="skill-tag">Microservices</div>
+            <div class="skill-tag">Redis</div>
+            <div class="skill-tag">ElasticSearch</div>
+            <div class="skill-tag">AWS SNS/SQS</div>
+            <div class="skill-tag">DynamoDB</div>
+            <div class="skill-tag">Kubernetes</div>
+            <div class="skill-tag">LLD & HLD</div>
+            <div class="skill-tag">System Design</div>
+            <div class="skill-tag">LLM Pipelines</div>
+            <div class="skill-tag">Semantic Search</div>
+            <div class="skill-tag">MySQL</div>
+            <div class="skill-tag">Couchbase</div>
+            <div class="skill-tag">React</div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="experience" id="experience">
+        <div class="section-title">
+            <h2>Experience</h2>
+            <p>Building scalable systems for enterprise platforms</p>
+        </div>
+
+        <div class="experience-item">
+            <div class="experience-header">
+                <div class="experience-info">
+                    <h3>Senior Software Engineer</h3>
+                    <div class="company">Cvent</div>
+                </div>
+                <div class="experience-duration">Apr 2024 – Present</div>
+            </div>
+            <ul class="experience-points">
+                <li>Built Fast Responder microservice using Spring Boot, Redis, and AWS SNS/SQS for scalable venue response processing.</li>
+                <li>Improved venue search relevance by 41% with Elasticsearch indexing and geo-based filtering.</li>
+                <li>Designed semantic search and LLM-driven venue discovery pipelines.</li>
+                <li>Implemented Couchbase ↔ Elasticsearch synchronization for near real-time consistency.</li>
+            </ul>
+        </div>
+
+        <div class="experience-item">
+            <div class="experience-header">
+                <div class="experience-info">
+                    <h3>Senior Software Development Engineer</h3>
+                    <div class="company">Freecharge</div>
+                </div>
+                <div class="experience-duration">Aug 2021 – Mar 2024</div>
+            </div>
+            <ul class="experience-points">
+                <li>Built UPI Central Mapper for transaction routing using 8–10 digit UPI numbers.</li>
+                <li>Developed recurring mandate system increasing active users by 18%.</li>
+                <li>Designed distributed transaction systems using microservices and AWS SNS/SQS.</li>
+                <li>Contributed to migration from EC2 to Kubernetes (EKS).</li>
+            </ul>
+        </div>
+
+        <div class="experience-item">
+            <div class="experience-header">
+                <div class="experience-info">
+                    <h3>Software Engineer | Digital Cadre</h3>
+                    <div class="company">Tata Consultancy Services</div>
+                </div>
+                <div class="experience-duration">Jun 2019 – Aug 2021</div>
+            </div>
+            <ul class="experience-points">
+                <li>Worked on microservices modernization and REST API development.</li>
+                <li>Built internal tools for validation and change request tracking.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects" id="projects">
+        <div class="section-title">
+            <h2>Featured Projects</h2>
+            <p>Production-grade backend and AI systems</p>
+        </div>
+
+        <div class="projects-grid">
+            <div class="project-card">
+                <h3>AI-Powered Venue Discovery</h3>
+                <p>Semantic search and LLM-based recommendation engine for venue discovery using Elasticsearch, NLP, and AI pipelines.</p>
+                <div class="project-tech">
+                    <span class="tech-badge">Java</span>
+                    <span class="tech-badge">Spring Boot</span>
+                    <span class="tech-badge">ElasticSearch</span>
+                    <span class="tech-badge">LLMs</span>
+                    <span class="tech-badge">Redis</span>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <h3>UPI Central Mapper</h3>
+                <p>High-throughput transaction routing service enabling secure and scalable UPI number-based processing.</p>
+                <div class="project-tech">
+                    <span class="tech-badge">Java</span>
+                    <span class="tech-badge">DynamoDB</span>
+                    <span class="tech-badge">SNS/SQS</span>
+                    <span class="tech-badge">Kubernetes</span>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <h3>Fast Responder System</h3>
+                <p>Distributed microservice architecture improving venue response visibility and processing scalability.</p>
+                <div class="project-tech">
+                    <span class="tech-badge">Spring Boot</span>
+                    <span class="tech-badge">Redis</span>
+                    <span class="tech-badge">AWS</span>
+                    <span class="tech-badge">Couchbase</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta" id="contact">
+        <h2>
+            Let's Build Scalable
+            <span>AI-Driven Systems</span>
+        </h2>
+        <p>Passionate about distributed systems, intelligent search, AI integrations, and high-performance backend architecture.</p>
+        <div class="cta-buttons">
+            <a href="mailto:ms.shubhampandey05@gmail.com" class="btn btn-primary">Hire Me</a>
+            <a href="https://spandey232.github.io/" target="_blank" class="btn btn-secondary">Current Portfolio</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="social-links">
+            <a href="mailto:ms.shubhampandey05@gmail.com">Email</a>
+            <a href="https://github.com/spandey232" target="_blank">GitHub</a>
+            <a href="https://www.linkedin.com/in/shubham-pandey-91aa0713b" target="_blank">LinkedIn</a>
+        </div>
+        <p>&copy; 2026 Shubham Pandey. All rights reserved.</p>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-top" id="scrollTop">↑</button>
+
+    <script>
+        // Smooth scroll navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                    updateActiveNav();
+                }
+            });
+        });
+
+        // Update active nav link
+        function updateActiveNav() {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-links a');
+
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').slice(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', updateActiveNav);
+
+        // Scroll to top button
+        const scrollTopBtn = document.getElementById('scrollTop');
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                scrollTopBtn.classList.add('show');
+            } else {
+                scrollTopBtn.classList.remove('show');
+            }
+        });
+
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
+</body>
+</html>
