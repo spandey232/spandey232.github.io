@@ -1,296 +1,285 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>  
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">    
-    <style>
-        .dark{
-            background-color: black;
-            color: blanchedalmond;
-        }
-        .headerLeft{
-            text-align: left;
-            margin-top: 2rem;
-        }
-        .headerRight{
-            text-align: right;
-            margin-top: 2rem;
-        }
-        .fa {
-        padding: 20px;
-        font-size: 30px;
-        width: 30px;
-        text-align: center;
-        margin: 5px 2px;
-        border-radius: 50%;
-        color: blanchedalmond;
-        }
+export default function Portfolio() {
+  const skills = [
+    'Java',
+    'Spring Boot',
+    'Microservices',
+    'Redis',
+    'ElasticSearch',
+    'AWS SNS/SQS',
+    'DynamoDB',
+    'Kubernetes',
+    'LLD & HLD',
+    'System Design',
+    'LLM Pipelines',
+    'Semantic Search',
+    'MySQL',
+    'Couchbase',
+    'React',
+  ];
 
-        .fa:hover {
-            opacity: 0.7;
-        }   
-        .aboutMe{
-            margin-top: 5rem;
-        }
-        .experience{
-            margin-top: 5rem;
-        }
-        img{
-       height: 175px;
-       width: 175px;
-        border-radius: 50%; 
-        }
-        .imagePortion{
-            padding-left: 4rem;
-            padding-top: 4rem;
-        }
-        .innerAbout{
-            text-align: justify;
-            padding-top: 3rem;
-            font-size: larger;
-        }
-        mark{
-            border-radius: 10%;
-        }
-        button{
-            border-radius:50% ;
-        }
-        .expP{
-            text-align: justify;
-            font-size: larger;
-            padding-top: 0.7rem;
-        }
-        .expRow{
-            margin-top: 1.5rem;
-        }
-        .projectP,ul{
-            text-align: justify;
-            font-size: larger;
-            padding-top: 0.7rem;
-        }
-    </style>
-   <!-- <script>
-        function changeBodyBg(color){
-        document.body.style.background = color;
-    }
-    </script>  -->
-    </head>
-    <body class="dark">
-        <div class="container">
-           <!-- <center><button type="button" onclick="changeBodyBg('blue');">Blue</button>
-            <button type="button" onclick="changeBodyBg('grey');">Grey</button>
-            <button type="button" onclick="changeBodyBg('goldenrod');">GoldenRod</button>
-            <button type="button" onclick="changeBodyBg('black');">Black</button><center> -->
-            <div class="row">
-                <div class="col-xs-12 col-sm-6 col-md-6 headerLeft">
-                    <h1 class="name">Shubham Pandey</h1>
-                    <h4>Software Development Engineer (SDE)</h4>
-                </div>
-                <div class="col-xs-12 col-sm-6 col-md-6 headerRight">
-                    <a href="https://github.com/spandey232" class="fa fa-github"></a>
-                    <a href="https://www.linkedin.com/in/shubham-pandey-91aa0713b/" class="fa fa-linkedin"></a>
-                    <a href="mailTo:ms.shubhampandey05@gmail.com" class="fa fa-google"></a>
-                    <a href="https://api.whatsapp.com/send?phone=8737875879" class="fa fa-whatsapp"></a>
-                    <a href="tel:+918429504380" class="fa fa-phone"></a>
-                    <a class="fa fa-download"></a>
-                </div>
+  const experiences = [
+    {
+      company: 'Cvent',
+      role: 'Senior Software Engineer',
+      duration: 'Apr 2024 – Present',
+      points: [
+        'Built Fast Responder microservice using Spring Boot, Redis, and AWS SNS/SQS for scalable venue response processing.',
+        'Improved venue search relevance by 41% with Elasticsearch indexing and geo-based filtering.',
+        'Designed semantic search and LLM-driven venue discovery pipelines.',
+        'Implemented Couchbase ↔ Elasticsearch synchronization for near real-time consistency.',
+      ],
+    },
+    {
+      company: 'Freecharge',
+      role: 'Senior Software Development Engineer',
+      duration: 'Aug 2021 – Mar 2024',
+      points: [
+        'Built UPI Central Mapper for transaction routing using 8–10 digit UPI numbers.',
+        'Developed recurring mandate system increasing active users by 18%.',
+        'Designed distributed transaction systems using microservices and AWS SNS/SQS.',
+        'Contributed to migration from EC2 to Kubernetes (EKS).',
+      ],
+    },
+    {
+      company: 'Tata Consultancy Services',
+      role: 'Software Engineer | Digital Cadre',
+      duration: 'Jun 2019 – Aug 2021',
+      points: [
+        'Worked on microservices modernization and REST API development.',
+        'Built internal tools for validation and change request tracking.',
+      ],
+    },
+  ];
+
+  const projects = [
+    {
+      title: 'AI-Powered Venue Discovery',
+      description:
+        'Semantic search and LLM-based recommendation engine for venue discovery using Elasticsearch, NLP, and AI pipelines.',
+      tech: 'Java • Spring Boot • ElasticSearch • LLMs • Redis',
+    },
+    {
+      title: 'UPI Central Mapper',
+      description:
+        'High-throughput transaction routing service enabling secure and scalable UPI number-based processing.',
+      tech: 'Java • DynamoDB • SNS/SQS • Kubernetes',
+    },
+    {
+      title: 'Fast Responder System',
+      description:
+        'Distributed microservice architecture improving venue response visibility and processing scalability.',
+      tech: 'Spring Boot • Redis • AWS • Couchbase',
+    },
+  ];
+
+  return (
+    <div className="min-h-screen bg-black text-white font-sans">
+      <section className="relative overflow-hidden border-b border-white/10">
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 via-purple-500/10 to-cyan-500/20 blur-3xl" />
+
+        <div className="relative max-w-7xl mx-auto px-6 py-24 lg:py-36">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div>
+              <div className="inline-flex items-center gap-2 rounded-full border border-white/20 px-4 py-2 text-sm text-gray-300 mb-6 bg-white/5 backdrop-blur-sm">
+                Senior Backend Engineer • 6+ Years Experience
+              </div>
+
+              <h1 className="text-5xl md:text-7xl font-black leading-tight tracking-tight">
+                Shubham
+                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-500">
+                  Pandey
+                </span>
+              </h1>
+
+              <p className="mt-8 text-lg text-gray-300 leading-relaxed max-w-2xl">
+                Building scalable backend systems, intelligent search platforms,
+                and AI-powered microservices using Java, Spring Boot,
+                Elasticsearch, Redis, Kubernetes, and cloud-native architecture.
+              </p>
+
+              <div className="flex flex-wrap gap-4 mt-10">
+                <a
+                  href="mailto:ms.shubhampandey05@gmail.com"
+                  className="px-6 py-3 rounded-2xl bg-white text-black font-semibold hover:scale-105 transition"
+                >
+                  Contact Me
+                </a>
+
+                <a
+                  href="https://github.com/spandey232"
+                  target="_blank"
+                  className="px-6 py-3 rounded-2xl border border-white/20 hover:bg-white/10 transition"
+                >
+                  GitHub
+                </a>
+
+                <a
+                  href="https://www.linkedin.com/in/shubham-pandey-91aa0713b"
+                  target="_blank"
+                  className="px-6 py-3 rounded-2xl border border-white/20 hover:bg-white/10 transition"
+                >
+                  LinkedIn
+                </a>
+              </div>
+
+              <div className="mt-10 flex flex-wrap gap-3 text-sm text-gray-300">
+                <span className="px-4 py-2 rounded-full bg-white/10 border border-white/10">
+                  Bangalore, India
+                </span>
+                <span className="px-4 py-2 rounded-full bg-white/10 border border-white/10">
+                  System Design
+                </span>
+                <span className="px-4 py-2 rounded-full bg-white/10 border border-white/10">
+                  AI + Search
+                </span>
+              </div>
             </div>
-            <div class="aboutMe">
-                <center><h2>About Me</h2></center>
-                <hr>
-                <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-sm-4 col-md-3 imagePortion">
-                    <img src="https://raw.githubusercontent.com/spandey232/spandey232.github.io/main/image.jpg"/>
+
+            <div className="relative">
+              <div className="rounded-3xl border border-white/10 bg-white/5 backdrop-blur-xl p-8 shadow-2xl">
+                <div className="grid grid-cols-2 gap-6">
+                  <div className="rounded-2xl bg-gradient-to-br from-cyan-500/20 to-blue-500/10 border border-white/10 p-6">
+                    <h3 className="text-4xl font-black">6+</h3>
+                    <p className="text-gray-300 mt-2">Years Experience</p>
+                  </div>
+
+                  <div className="rounded-2xl bg-gradient-to-br from-purple-500/20 to-pink-500/10 border border-white/10 p-6">
+                    <h3 className="text-4xl font-black">650+</h3>
+                    <p className="text-gray-300 mt-2">DSA Problems Solved</p>
+                  </div>
+
+                  <div className="rounded-2xl bg-gradient-to-br from-emerald-500/20 to-teal-500/10 border border-white/10 p-6">
+                    <h3 className="text-4xl font-black">41%</h3>
+                    <p className="text-gray-300 mt-2">Search Accuracy Boost</p>
+                  </div>
+
+                  <div className="rounded-2xl bg-gradient-to-br from-orange-500/20 to-red-500/10 border border-white/10 p-6">
+                    <h3 className="text-4xl font-black">18%</h3>
+                    <p className="text-gray-300 mt-2">User Growth Impact</p>
+                  </div>
                 </div>
-                <div class="col-xs-12 col-sm-8 col-md-9">
-                    <p class="innerAbout">Hi, my name is Shubham. I graduated from Madan Mohan Malaviya University of Technology in 2019 Batch. I have been working in Java Backend development from last 2 years.
-                       <br> I have experience in many languages, frameworks and technologies like <mark>Java</mark>, <mark>Spring Boot</mark>, <mark> REST APIs </mark>, <mark>DynamoDB</mark>, <mark>Jenkins</mark>, <mark>React.Js</mark>, <mark>MySQL</mark>, <mark>git</mark>, etc.
-                       <br> Currently I am looking forward to opportunities which allow me to apply my problem solving and logical thinking abilities to the real world scenarios and solve real world problems.</p>
-                </div>
+              </div>
             </div>
-               </div>
-            </div>
-            <div class="experience">
-                <center><h2>Work Experience</h2></center>
-                <hr>
-                <div class="container">
-				<div class="row expRow">
-                        <div class="col-xs-12 col-sm-4 col-md-3">
-                            <h4>FreeCharge</h4>
-                            <b>Software Development Engineer</b>
-                            <p>Aug 2021 - Present</p>
-                        </div>
-                        <div class="col-xs-12 col-sm-8 col-md-9">
-                            <p class="expP">Working in UPI team. Building scalable APIs using architectural design concepts.</p>
-                        </div>
-                    </div>
-                    <div class="row expRow">
-                        <div class="col-xs-12 col-sm-4 col-md-3">
-                            <h4>Tata Consultancy Services</h4>
-                            <b>Assistant Software Developer</b>
-                            <p>June 2019 - Aug 2021</p>
-                        </div>
-                        <div class="col-xs-12 col-sm-8 col-md-9">
-                            <p class="expP">Got an 'On the Spot Award' for developing a CR Tool Tracker to track all CRs status.
-                            <br>created RESTfull APIs and sending back response to the other connected servers after data validation.
-                           <br>Uses my problem solving approach to create valuable and efficient code whereever required.</p>
-                        </div>
-                    </div>
-                    <div class="row expRow">
-                        <div class="col-xs-12 col-sm-4 col-md-3">
-                            <h4>Om InfoSystem Pvt. Ltd., Delhi</h4>
-                            <b>Software Development Intern</b>
-                            <p>April 2018 - June 2018</p>
-                        </div>
-                        <div class="col-xs-12 col-sm-8 col-md-9">
-                            <p class="expP">Developed a project using Spring MVC, Maven and Hibernate. Learn to use various tools such as WINSCP, putty and Eclipse.
-                                Applied basic searching and sorting algorithms to filter user details as per user choice.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="row expRow">
-                        <div class="col-xs-12 col-sm-4 col-md-3">
-                            <h4>Sapne NGO, Delhi</h4>
-                            <b>Software Development Intern</b>
-                            <p>Aug 2017 - Nov 2017</p>
-                        </div>
-                        <div class="col-xs-12 col-sm-8 col-md-9">
-                            <p class="expP">As a team member developed an Android Application to create awareness about events and happenings in NGO. Learnt to work in an Agile based environment through Git.
-                                worked as an active contributor <a href="https://github.com/Sapnethedreams/Sapne/graphs/contributors">(#4th among all)</a> to the repository.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="education">
-                <center><h2>Education</h2></center>
-                <hr>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-xs-12 col-sm-12 col-md-4">
-                            <h4>Madan Mohan Malaviya University of Technology</h4>
-                            <b>B.Tech, Computer Science</b>
-                            <p>2015-2019, 8.13 CGPA</p>
-                        </div>
-                        <div class="col-xs-12 col-sm-12 col-md-4">
-                            <h4>Jawahar Navodaya Vidyalaya (JNV), Gorakhpur</h4>
-                            <b>High School</b>
-                            <p>2010-2012, 10 CGPA</p>
-                        </div>
-                        <div class="col-xs-12 col-sm-12 col-md-4">
-                            <h4>Jawahar Navodaya Vidyalaya (JNV), Gorakhpur</h4>
-                            <b>Intermediate (PCM)</b>
-                            <p>2012-2014, 86.20%</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="projects">
-                <center><h2>Projects</h2></center>
-                <hr>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-xs-12 col-sm-4 col-md-3">
-                            <h4>Cricket_Collector</h4>
-                        </div>
-                        <div class="col-xs-12 col-sm-8 col-md-9">
-                            <ul>
-                            <li>Created a ReactJs application to fetch real time cricket data through web and to populate them for user. It has various interactive 
-                            features to filter the cricket events based on user choice.</li>
-                            <li>This project was part of learning ReactJs and REST APIs development.</li>
-                            <li>Learnt to build interactive application based on user experience.</li>
-                            </ul>
-                            <p class="projectP">
-                                Skills used:  <mark>ReactJs</mark>,  <mark>REST API</mark>,  <mark>JavaScript</mark> and dealing with  <mark>JSON</mark> file format. 
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="skills">
-                <center><h2>Skills</h2></center>
-                <hr>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-xs-12 col-sm-6 col-md-3">
-                            <h4>Languages</h4>
-                        </div>
-                        <div class="col-xs-12 col-sm-6 col-md-9">
-                            <p class="expP">Core Java, Java8, JavaScript, Basics of C, SQL, HTML, Bootstrap, CSS, DynamoDB</p>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-12 col-sm-6 col-md-3">
-                            <h4>Framework</h4>
-                        </div>
-                        <div class="col-xs-12 col-sm-6 col-md-9">
-                            <p class="expP">Spring Boot, Spring MVC ,Redis Cache Design and ReactJs as a library and REST API Development </p>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-12 col-sm-6 col-md-3">
-                            <h4>Tools</h4>
-                        </div>
-                        <div class="col-xs-12 col-sm-6 col-md-9">
-                            <p class="expP">Jenkins, IntelliJ, BitBucket, Eclipse, SQL Developer, MySQL , WinSCP, Putty etc.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="acheivements">
-                    <center><h2>Some more info about me</h2></center>
-                    <hr>
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-xs-12 col-sm-6 col-md-3">
-                            <h4>Acheivements</h4>
-                            </div>
-                            <div class="col-xs-12 col-sm-6 col-md-9">
-                                <ul>
-                                    <li>Got an "On The Spot Award" for work excellence in TCS</li>
-                                    <li>Got a "Fresco Play Miles Award" for being a top performer in June-2019 Hackathon</li>
-                                    <li>Secured 95% in Introduction to Algorithms and Analysis Exam conducted by NPTEL, IIT Kharagpur </li> 
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-xs-12 col-sm-6 col-md-3">
-                                <h4>Competitive Programming Profiles</h4>
-                                <a href="https://www.codechef.com/users/s_pandey05" target="_blank"><span class="badge badge-success">CodeChef</span></a><br>
-                                <a href="https://leetcode.com/spandey/" target="_blank"><span class="badge badge-success">LeetCode</span></a><br>
-                                <a href="https://codeforces.com/profile/spandey05" target="_blank"><span class="badge badge-success">Codeforces</span></a><br>
-                                <a href="https://www.hackerrank.com/pandeyji?hr_r=1" target="_blank"><span class="badge badge-success">Hackerrank</span></a>
-                            </div>
-                            <div class="col-xs-12 col-sm-6 col-md-9">
-                                    <ul>
-                                    <li>650+ Programming Questions solved on Coding platforms like CodeChef, LeetCode, Codeforces, Hackerrank etc. </li>
-                                    <li>CodeChef CCDSAP Foundation level certificate. Highest Rating 1702 on CodeChef. </li>   
-                                    <li>Global Rank 439 January Challenge 2021 Div-3 CodeChef</li>
-                                    <li>Global Rank 1042 October Challenge 2020 Div-2 CodeChef</li> 
-                                    </ul>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-xs-12 col-sm-6 col-md-3">
-                                <h4>Certifications</h4>
-                            </div>
-                            <div class="col-xs-12 col-sm-6 col-md-9">
-                                    <p class="expP">Core Java by HP, Android Application Development by HP, Networking in Linux by Netarctica,
-                                    Design and Analysis of Algorithms by NPTEL, IIT Madras</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+          </div>
         </div>
-        <br>
-        <br>
-        <br>
-        <center><h5>Shubham Pandey: ms.shubhampandey05@gmail.com</h5></center>
-    </body>
-</html>
+      </section>
+
+      <section className="max-w-7xl mx-auto px-6 py-24">
+        <div className="flex items-center justify-between mb-12">
+          <div>
+            <h2 className="text-4xl font-black">Core Skills</h2>
+            <p className="text-gray-400 mt-2">
+              Technologies and architecture expertise
+            </p>
+          </div>
+        </div>
+
+        <div className="flex flex-wrap gap-4">
+          {skills.map((skill) => (
+            <div
+              key={skill}
+              className="px-5 py-3 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 transition"
+            >
+              {skill}
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="max-w-7xl mx-auto px-6 py-24 border-t border-white/10">
+        <div className="mb-14">
+          <h2 className="text-4xl font-black">Experience</h2>
+          <p className="text-gray-400 mt-2">
+            Building scalable systems for enterprise platforms
+          </p>
+        </div>
+
+        <div className="space-y-8">
+          {experiences.map((exp, idx) => (
+            <div
+              key={idx}
+              className="rounded-3xl border border-white/10 bg-white/5 p-8 hover:bg-white/[0.07] transition"
+            >
+              <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+                <div>
+                  <h3 className="text-2xl font-bold">{exp.role}</h3>
+                  <p className="text-cyan-400 text-lg mt-1">{exp.company}</p>
+                </div>
+                <div className="text-gray-400">{exp.duration}</div>
+              </div>
+
+              <ul className="mt-6 space-y-3 text-gray-300">
+                {exp.points.map((point, i) => (
+                  <li key={i} className="flex gap-3">
+                    <span className="text-cyan-400">•</span>
+                    <span>{point}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="max-w-7xl mx-auto px-6 py-24 border-t border-white/10">
+        <div className="mb-14">
+          <h2 className="text-4xl font-black">Featured Projects</h2>
+          <p className="text-gray-400 mt-2">
+            Production-grade backend and AI systems
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-3 gap-8">
+          {projects.map((project, idx) => (
+            <div
+              key={idx}
+              className="rounded-3xl border border-white/10 bg-gradient-to-b from-white/10 to-white/[0.03] p-8 hover:scale-[1.02] transition"
+            >
+              <h3 className="text-2xl font-bold">{project.title}</h3>
+              <p className="text-gray-300 mt-4 leading-relaxed">
+                {project.description}
+              </p>
+
+              <div className="mt-6 text-sm text-cyan-400">
+                {project.tech}
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="max-w-7xl mx-auto px-6 py-24 border-t border-white/10">
+        <div className="rounded-[2rem] border border-white/10 bg-gradient-to-r from-cyan-500/10 via-blue-500/10 to-purple-500/10 p-12 text-center">
+          <h2 className="text-5xl font-black leading-tight">
+            Let’s Build Scalable
+            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-500">
+              AI-Driven Systems
+            </span>
+          </h2>
+
+          <p className="text-gray-300 text-lg mt-6 max-w-2xl mx-auto">
+            Passionate about distributed systems, intelligent search, AI
+            integrations, and high-performance backend architecture.
+          </p>
+
+          <div className="flex flex-wrap justify-center gap-4 mt-10">
+            <a
+              href="mailto:ms.shubhampandey05@gmail.com"
+              className="px-8 py-4 rounded-2xl bg-white text-black font-semibold hover:scale-105 transition"
+            >
+              Hire Me
+            </a>
+
+            <a
+              href="https://spandey232.github.io/"
+              target="_blank"
+              className="px-8 py-4 rounded-2xl border border-white/20 hover:bg-white/10 transition"
+            >
+              Current Portfolio
+            </a>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+}
